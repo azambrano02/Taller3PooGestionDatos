@@ -30,11 +30,14 @@ public class Cliente {
 		this.correo = correo;
 	}
 
-	public Cliente(String nombre, String rut, String correo) {
-		throw new UnsupportedOperationException();
+	public Cliente(String nombre, String rut, String correo, TiendaVehiculos cuentaTienda) {
+		this.nombre = nombre;
+		this.rut = rut;
+		this.correo = correo;
+		this.cuentaTienda = cuentaTienda;
 	}
 
 	public void agregarVehiculoCompra(Vehiculo vehiculo) {
-		throw new UnsupportedOperationException();
+
 	}
 }

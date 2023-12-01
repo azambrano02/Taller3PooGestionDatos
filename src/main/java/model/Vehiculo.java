@@ -1,14 +1,23 @@
 package model;
 
 public abstract class Vehiculo {
-	private Marca marca;
-	private String modelo;
-	private int año;
-	private double peso;
-	private double precio;
-	private int stock;
-	private TiendaVehiculos tiendaVehiculos;
-	public Marca unnamed_Marca_;
+	protected Marca marca;
+	protected String modelo;
+	protected int año;
+	protected double peso;
+	protected double precio;
+	protected int stock;
+	protected TiendaVehiculos tiendaVehiculos;
+
+	protected String codigo;
+
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
 
 	public Marca getMarca() {
 		return this.marca;
@@ -30,7 +39,7 @@ public abstract class Vehiculo {
 		return this.año;
 	}
 
-	public void setA�o(int año) {
+	public void setAño(int año) {
 		this.año = año;
 	}
 
@@ -58,9 +67,15 @@ public abstract class Vehiculo {
 		this.stock = stock;
 	}
 
-	public Vehiculo(Marca marca, String modelo, int año, double peso, double precio, int stock) {
-		throw new UnsupportedOperationException();
-	}
+	public Vehiculo(Marca marca, String modelo, int año, double peso, double precio, int stock, String codigo) {
+		this.marca = marca;
+		this.modelo = modelo;
+		this.año = año;
+		this.peso = peso;
+		this.precio = precio;
+		this.stock = stock;
+		this.codigo = codigo;
 
+	}
 	public abstract String toString();
 }
