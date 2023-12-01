@@ -54,9 +54,8 @@ public class TiendaVehiculos {
 		return null;
 	}
 
-	public Vehiculo buscarVehiculoTipo(Automovil automovil, Motocicleta motocicleta, Modelo modelo) {
-
-		}
+	public Vehiculo buscarVehiculoTipo(Automovil automovil, Motocicleta motocicleta) {
+		return null;
 	}
 
 	public boolean agregarVehiculo(Vehiculo vehiculo) {
