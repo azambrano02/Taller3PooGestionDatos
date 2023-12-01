@@ -9,8 +9,8 @@ import model.Cliente;
 
 public class TiendaVehiculos {
 	private Date fechaCompra;
-	private ArrayList<Vehiculo> vehiculos = new ArrayList<Vehiculo>();
-	private ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+	private List<Vehiculo> vehiculos;
+	private List<Cliente> clientes;
 
 	public Date getFechaCompra() {
 		return this.fechaCompra;
@@ -20,8 +20,26 @@ public class TiendaVehiculos {
 		this.fechaCompra = fechaCompra;
 	}
 
+	public List<Vehiculo> getVehiculos() {
+		return vehiculos;
+	}
+
+	public void setVehiculos(List<Vehiculo> vehiculos) {
+		this.vehiculos = vehiculos;
+	}
+
+	public List<Cliente> getClientes() {
+		return clientes;
+	}
+
+	public void setClientes(List<Cliente> clientes) {
+		this.clientes = clientes;
+	}
+
 	public TiendaVehiculos(Date fechaCompra) {
-		throw new UnsupportedOperationException();
+		this.fechaCompra = fechaCompra;
+		this.vehiculos = new ArrayList<>();
+		this.clientes = new ArrayList<>();
 	}
 
 	public Vehiculo bucarVehiculoMarca(Marca marca) {
@@ -29,18 +47,54 @@ public class TiendaVehiculos {
 	}
 
 	public Vehiculo buscarVehiculoModelo(String modelo) {
-		throw new UnsupportedOperationException();
+		for (Vehiculo vehiculo : this.vehiculos) {
+			if (vehiculo.getModelo().equals(modelo))
+				return vehiculo;
+		}
+		return null;
 	}
 
-	public Vehiculo buscarVehiculoTipo(Automovil automovil, Motocicleta motocicleta) {
-		throw new UnsupportedOperationException();
+	public Vehiculo buscarVehiculoTipo(Automovil automovil, Motocicleta motocicleta, Modelo modelo) {
+
+		}
 	}
 
-	public void compra(List<Vehiculo> vehiculos, Cliente cliente, Date fechaCompra) {
-		throw new UnsupportedOperationException();
+	public boolean agregarVehiculo(Vehiculo vehiculo) {
+		if (!vehiculoExiste(vehiculo)) {
+			this.vehiculos.add(vehiculo);
+			return true;
+		} else {
+			return false;
+		}
 	}
+	public boolean vehiculoExiste(Vehiculo vehiculo){
+		for(Vehiculo v : this.vehiculos) {
+			if(vehiculo.getCodigo().equals(v.getCodigo())) {
+				return true;
+			}
+		}
 
+		return false;
+	}
 	public boolean agregarCliente(Cliente cliente) {
-		throw new UnsupportedOperationException();
+		if (!clienteExiste(cliente)) {
+			this.clientes.add(cliente);
+			return true;
+		} else {
+			return false;
+		}
+	}
+	public boolean clienteExiste(Cliente cliente){
+		for(Cliente c : this.clientes) {
+			if(cliente.getRut().equals(c.getRut())) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	public void agregarCompra(List<Vehiculo> vehiculos, Cliente cliente, Date fechaCompra) {
+		Compra nuevacompra = new Compra(vehiculos,cliente,fechaCompra);
 	}
 }

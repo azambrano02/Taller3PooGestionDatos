@@ -5,6 +5,12 @@ public class Automovil extends Vehiculo {
 	private int tamañoMotor;
 	private double caballosFuerza;
 
+	public Automovil(Marca marca, String modelo, int año, double peso, double precio, int stock, String codigo,int numPuertas,int tamañoMotor , double caballosFuerza){
+		super(marca, modelo, año, peso, precio, stock, codigo);
+		this.numPuertas = numPuertas;
+		this.tamañoMotor = tamañoMotor;
+		this.caballosFuerza = caballosFuerza;
+	}
 	public int getNumPuertas() {
 		return this.numPuertas;
 	}
@@ -17,7 +23,7 @@ public class Automovil extends Vehiculo {
 		return this.tamañoMotor;
 	}
 
-	public void setTama�oMotor(int tamañoMotor) {
+	public void setTamañoMotor(int tamañoMotor) {
 		this.tamañoMotor = tamañoMotor;
 	}
 
@@ -30,10 +36,10 @@ public class Automovil extends Vehiculo {
 	}
 
 	public double velocidadMaxima(double caballosFuerza, double peso) {
-		throw new UnsupportedOperationException();
+		return (caballosFuerza / peso) * 10;
 	}
 
 	public String toString() {
-		throw new UnsupportedOperationException();
+		return marca+modelo+año+peso+precio+stock+numPuertas+tamañoMotor+caballosFuerza;
 	}
 }

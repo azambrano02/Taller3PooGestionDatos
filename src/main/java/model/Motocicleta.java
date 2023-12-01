@@ -5,6 +5,12 @@ public class Motocicleta extends Vehiculo {
 	private String suspencion;
 	private double caballosFuerza;
 
+	public Motocicleta(Marca marca, String modelo, int año, double peso, double precio,String codigo, int stock, String tipoMotor, String suspencion, double caballosFuerza){
+		super(marca, modelo, año, peso, precio, stock, codigo);
+		this.tipoMotor = tipoMotor;
+		this.suspencion = suspencion;
+		this.caballosFuerza = caballosFuerza;
+	}
 	public String getTipoMotor() {
 		return this.tipoMotor;
 	}
@@ -30,10 +36,10 @@ public class Motocicleta extends Vehiculo {
 	}
 
 	public double velocidadMaxima(double caballosFuerza, double peso) {
-		throw new UnsupportedOperationException();
+		return ((caballosFuerza * 2) / peso) * 20;
 	}
 
 	public String toString() {
-		throw new UnsupportedOperationException();
+		return marca+modelo+año+peso+precio+stock+tipoMotor+suspencion+caballosFuerza;
 	}
 }
